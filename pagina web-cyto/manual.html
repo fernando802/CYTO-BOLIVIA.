@@ -1,0 +1,841 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manual Informativo | CYTOC-BOL</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        :root {
+            --rosa: #e91e63;
+            --rosa-claro: #ff4f91;
+            --rosa-suave: #ffe1ed;
+            --rosa-pastel: #fff3f8;
+            --rosa-oscuro: #b9154e;
+            --blanco: #ffffff;
+            --gris: #555;
+            --verde: #25d366;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff5f9, #ffe4ef);
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* BARRA DE NAVEGACIÓN */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.96);
+            box-shadow: 0 4px 20px rgba(233,30,99,0.15);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--rosa);
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: var(--rosa-oscuro);
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--rosa-claro);
+        }
+
+        /* PORTADA */
+        .hero {
+            min-height: 430px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background:
+                radial-gradient(circle at top left, #ffd1e3, transparent 35%),
+                radial-gradient(circle at bottom right, #ffc0d8, transparent 35%),
+                #fff7fa;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            color: var(--rosa);
+            margin-bottom: 15px;
+            text-shadow:
+                0 0 8px #ffb3cf,
+                0 0 20px rgba(233,30,99,0.4);
+            animation: flotar 3s ease-in-out infinite;
+        }
+
+        .hero h2 {
+            color: var(--rosa-oscuro);
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--gris);
+            font-size: 18px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        @keyframes flotar {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* CONTENEDOR */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            padding: 55px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--rosa);
+            font-size: 34px;
+            margin-bottom: 35px;
+        }
+
+        /* ÍNDICE */
+        .indice {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(233,30,99,0.12);
+        }
+
+        .indice h2 {
+            color: var(--rosa);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .indice a {
+            display: block;
+            text-decoration: none;
+            color: var(--rosa-oscuro);
+            background: var(--rosa-pastel);
+            padding: 12px 18px;
+            margin: 8px 0;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .indice a:hover {
+            background: var(--rosa-suave);
+            transform: translateX(5px);
+        }
+
+        /* TARJETAS */
+        .card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(233,30,99,0.12);
+            border-left: 6px solid var(--rosa);
+        }
+
+        .card h3 {
+            color: var(--rosa);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--gris);
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            padding-left: 25px;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        /* AVISO */
+        .aviso {
+            background: linear-gradient(135deg, #ffe0eb, #fff1f6);
+            border: 2px solid #ff9cbd;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .aviso h3 {
+            color: var(--rosa-oscuro);
+            margin-bottom: 10px;
+        }
+
+        /* CAJA DE EMERGENCIA */
+        .emergencia {
+            background: #fff;
+            border: 3px solid #e91e63;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(233,30,99,0.15);
+        }
+
+        .emergencia h3 {
+            color: #d41454;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .emergencia li {
+            margin-bottom: 10px;
+        }
+
+        /* PREGUNTAS */
+        .faq {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 7px 20px rgba(233,30,99,0.1);
+        }
+
+        .faq h3 {
+            color: var(--rosa);
+            margin-bottom: 8px;
+        }
+
+        /* BOTÓN WHATSAPP */
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: var(--verde);
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 31px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 2000;
+            animation: pulso 2s infinite;
+        }
+
+        @keyframes pulso {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* BOTÓN VOLVER */
+        .volver {
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        .volver a {
+            display: inline-block;
+            background: var(--rosa);
+            color: white;
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(233,30,99,0.3);
+            transition: 0.3s;
+        }
+
+        .volver a:hover {
+            background: var(--rosa-oscuro);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--rosa-oscuro);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 6px 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 4px 7px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero {
+                min-height: 380px;
+                padding: 35px 15px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .card,
+            .indice,
+            .emergencia {
+                padding: 22px;
+            }
+
+            .whatsapp {
+                width: 55px;
+                height: 55px;
+                font-size: 27px;
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <div class="logo">💗 CYTOC-BOL</div>
+
+        <div>
+            <a href="#inicio">Inicio</a>
+            <a href="#indice">Índice</a>
+            <a href="#informacion">Información</a>
+            <a href="#alarma">Señales de alarma</a>
+            <a href="#faq">Preguntas</a>
+        </div>
+    </nav>
+
+
+    <!-- PORTADA -->
+    <header class="hero" id="inicio">
+        <div class="hero-content">
+
+            <h1>💗 CYTOC-BOL 💗</h1>
+
+            <h2>Manual informativo sobre el aborto</h2>
+
+            <p>
+                Información educativa sobre salud sexual y reproductiva,
+                atención responsable y señales que requieren atención sanitaria.
+            </p>
+
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- ÍNDICE -->
+        <section id="indice">
+
+            <div class="indice">
+
+                <h2>📖 Contenido del manual</h2>
+
+                <a href="#que-es">
+                    1. ¿Qué es el aborto?
+                </a>
+
+                <a href="#tipos">
+                    2. Tipos de aborto
+                </a>
+
+                <a href="#seguridad">
+                    3. Atención segura
+                </a>
+
+                <a href="#medicamentos">
+                    4. Medicamentos utilizados en la atención del aborto
+                </a>
+
+                <a href="#alarma">
+                    5. Señales de alarma
+                </a>
+
+                <a href="#posterior">
+                    6. Atención posterior
+                </a>
+
+                <a href="#emocional">
+                    7. Salud emocional
+                </a>
+
+                <a href="#legal">
+                    8. Información legal en Bolivia
+                </a>
+
+                <a href="#faq">
+                    9. Preguntas frecuentes
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ¿QUÉ ES? -->
+        <section id="que-es">
+
+            <h2 class="section-title">
+                💗 1. ¿Qué es el aborto?
+            </h2>
+
+            <div class="card">
+
+                <p>
+                    El aborto es la interrupción de un embarazo.
+                    Puede producirse espontáneamente o mediante una
+                    intervención médica.
+                </p>
+
+                <p>
+                    La atención del aborto forma parte de la atención
+                    sanitaria y debe realizarse utilizando información
+                    científica confiable y métodos adecuados a las
+                    circunstancias de cada persona.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- TIPOS -->
+        <section id="tipos">
+
+            <h2 class="section-title">
+                🌸 2. Tipos de aborto
+            </h2>
+
+            <div class="card">
+
+                <h3>Aborto espontáneo</h3>
+
+                <p>
+                    Es la pérdida de un embarazo que ocurre de manera
+                    natural sin una intervención intencional.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Aborto provocado</h3>
+
+                <p>
+                    Es la interrupción intencional de un embarazo mediante
+                    atención médica utilizando métodos apropiados según
+                    las circunstancias clínicas.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ATENCIÓN SEGURA -->
+        <section id="seguridad">
+
+            <h2 class="section-title">
+                🩷 3. Atención segura
+            </h2>
+
+            <div class="card">
+
+                <p>
+                    La atención debe basarse en información científica,
+                    recomendaciones sanitarias actualizadas y las
+                    circunstancias particulares de cada persona.
+                </p>
+
+                <ul>
+                    <li>Información clara y confiable.</li>
+                    <li>Atención respetuosa y sin discriminación.</li>
+                    <li>Confidencialidad.</li>
+                    <li>Evaluación de las circunstancias individuales.</li>
+                    <li>Atención posterior cuando sea necesaria.</li>
+                </ul>
+
+            </div>
+
+            <div class="aviso">
+
+                <h3>⚠️ Importante</h3>
+
+                <p>
+                    No se recomienda utilizar medicamentos por cuenta propia
+                    sin conocer si son apropiados para la situación concreta.
+                    La información de este manual no sustituye una evaluación
+                    médica.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- MEDICAMENTOS -->
+        <section id="medicamentos">
+
+            <h2 class="section-title">
+                💊 4. Medicamentos utilizados
+            </h2>
+
+            <div class="card">
+
+                <p>
+                    Existen medicamentos que pueden formar parte de la
+                    atención médica del aborto. La selección y utilización
+                    dependen de diferentes factores clínicos.
+                </p>
+
+                <p>
+                    Este manual no proporciona dosis, cantidades de tabletas
+                    ni esquemas de administración. Esa información debe
+                    basarse en guías clínicas actualizadas y en las
+                    circunstancias particulares de cada persona.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SEÑALES DE ALARMA -->
+        <section id="alarma">
+
+            <h2 class="section-title">
+                🚨 5. Señales de alarma
+            </h2>
+
+            <div class="emergencia">
+
+                <h3>⚠️ Busca atención médica urgente si:</h3>
+
+                <ul>
+
+                    <li>
+                        Presentas sangrado muy abundante o que te preocupa.
+                    </li>
+
+                    <li>
+                        Tienes dolor intenso o que empeora.
+                    </li>
+
+                    <li>
+                        Presentas fiebre o un malestar importante.
+                    </li>
+
+                    <li>
+                        Tienes desmayo o debilidad extrema.
+                    </li>
+
+                    <li>
+                        Presentas dificultad para respirar.
+                    </li>
+
+                    <li>
+                        Tienes cualquier otro síntoma grave que genere
+                        preocupación.
+                    </li>
+
+                </ul>
+
+                <p style="margin-top:15px;">
+                    Ante una emergencia, acude inmediatamente al servicio
+                    de salud más cercano.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ATENCIÓN POSTERIOR -->
+        <section id="posterior">
+
+            <h2 class="section-title">
+                🌷 6. Atención posterior
+            </h2>
+
+            <div class="card">
+
+                <p>
+                    La atención posterior puede incluir una evaluación del
+                    estado de salud, tratamiento de posibles complicaciones
+                    y orientación sobre salud sexual y reproductiva.
+                </p>
+
+                <p>
+                    También puede ofrecerse información sobre métodos
+                    anticonceptivos cuando la persona desea prevenir un
+                    embarazo futuro.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SALUD EMOCIONAL -->
+        <section id="emocional">
+
+            <h2 class="section-title">
+                💕 7. Salud emocional
+            </h2>
+
+            <div class="card">
+
+                <p>
+                    Las experiencias relacionadas con un embarazo y un aborto
+                    pueden generar diferentes emociones. Cada persona puede
+                    vivir la situación de una manera diferente.
+                </p>
+
+                <p>
+                    Es importante recibir un trato respetuoso, sin
+                    discriminación ni presión, y buscar apoyo profesional
+                    cuando sea necesario.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMACIÓN LEGAL -->
+        <section id="legal">
+
+            <h2 class="section-title">
+                ⚖️ 8. Información legal en Bolivia
+            </h2>
+
+            <div class="card">
+
+                <p>
+                    Las condiciones legales para acceder a la interrupción
+                    legal del embarazo dependen de la normativa vigente y
+                    de las circunstancias particulares de cada caso.
+                </p>
+
+                <p>
+                    La normativa puede cambiar. Por ello, la información
+                    legal debe verificarse mediante fuentes oficiales
+                    bolivianas y servicios de salud autorizados.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PREGUNTAS FRECUENTES -->
+        <section id="faq">
+
+            <h2 class="section-title">
+                ❓ 9. Preguntas frecuentes
+            </h2>
+
+            <div class="faq">
+
+                <h3>¿El aborto puede ser seguro?</h3>
+
+                <p>
+                    La OMS señala que el aborto puede ser una intervención
+                    segura cuando se utiliza un método recomendado y adecuado
+                    para la duración del embarazo, con información y atención
+                    apropiadas.
+                </p>
+
+            </div>
+
+
+            <div class="faq">
+
+                <h3>¿Todas las personas necesitan el mismo tratamiento?</h3>
+
+                <p>
+                    No. Las circunstancias y necesidades pueden variar,
+                    por lo que la atención debe adaptarse a cada situación.
+                </p>
+
+            </div>
+
+
+            <div class="faq">
+
+                <h3>¿Puedo automedicarme?</h3>
+
+                <p>
+                    No es recomendable tomar medicamentos sin información
+                    confiable sobre su uso y sin considerar las circunstancias
+                    particulares de la persona.
+                </p>
+
+            </div>
+
+
+            <div class="faq">
+
+                <h3>¿Cuándo debo acudir a un centro de salud?</h3>
+
+                <p>
+                    Debes buscar atención urgente ante síntomas graves como
+                    sangrado abundante, dolor intenso, fiebre, desmayo,
+                    dificultad para respirar o deterioro importante del
+                    estado general.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- AVISO FINAL -->
+        <section>
+
+            <div class="aviso">
+
+                <h3>📌 Aviso importante</h3>
+
+                <p>
+                    Este manual tiene finalidad exclusivamente informativa
+                    y educativa. No sustituye una consulta médica,
+                    diagnóstico ni evaluación individual.
+                </p>
+
+                <p style="margin-top:10px;">
+                    La información sobre medicamentos, diagnóstico,
+                    duración del embarazo y tratamiento debe basarse en
+                    guías clínicas actualizadas y fuentes sanitarias
+                    confiables.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- VOLVER -->
+        <div class="volver">
+
+            <a href="index.html">
+                🏠 Volver a CYTOC-BOL
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- WHATSAPP -->
+    <a
+        class="whatsapp"
+        href="https://wa.me/59176590267"
+        target="_blank"
+        aria-label="Contactar por WhatsApp">
+        💬
+    </a>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>💗 <strong>CYTOC-BOL</strong></p>
+
+        <p>Manual informativo sobre salud sexual y reproductiva</p>
+
+        <p>
+            Información educativa. No sustituye la atención de un profesional
+            de salud.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
